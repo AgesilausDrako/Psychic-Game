@@ -1,4 +1,3 @@
-console.log("Hello, world!");
 // Our array of possible computer choices.
 var computerChoices = ['a','b','c','d','e','f','g','h','i','j','k','l',
 'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -6,15 +5,16 @@ var computerChoices = ['a','b','c','d','e','f','g','h','i','j','k','l',
 // Variables for tracking our wins, losses and guesses.
 var wins = 0;
 var losses = 0;
-var guesses = 10;
+var guesses = 9;
+var guessArr = [];
+
 
 document.onkeyup = function(event) { 
 
-// Determine which key was pressed
 var userGuess = event.key;
-
-// Sets the computerGuess variable equal to a random choice from the computerChoice array.
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+	
+	guessArr.push(userGuess);
 
 	if (userGuess === computerGuess) {
 		wins++;
@@ -24,18 +24,28 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 		guesses--;
 	}
 
-	if (guesses === 0) {
-
-	}
-
+	
 	var html = "<p>Guess what letter I'm thinking of</p>" +
           "<p>Wins: " + wins + "</p>" +
           "<p>Losses: " + losses + "</p>" +
           "<p>Guesses: " + guesses + "</p>"+
-          "<p>Your guesses so far: " + userGuess + "</p>";
+          "<p>Your guesses so far: " + guessArr.toString()  + "</p>";
 
 	// Injecting the HTML we just created into our div and updating the game information on our page.
 	document.querySelector("#game").innerHTML = html;
+/*
+	if (wins === 9 || losses === 9 || guesses === 0) {
+		
+		var resetHtml = "<p>Guess what letter I'm thinking of</p>" +
+          "<p>Wins: " + wins + "</p>" +
+          "<p>Losses: " + losses + "</p>" +
+          "<p>Guesses: " + guesses + "</p>"+
+          "<p>Your guesses so far: " + + "</p>";
+ 
+	document.querySelector("#game").innerHTML = resetHtml;
+
+	}
+*/
 }
 
 
