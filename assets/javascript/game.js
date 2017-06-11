@@ -1,8 +1,7 @@
-// Our array of possible computer choices.
 var computerChoices = ['a','b','c','d','e','f','g','h','i','j','k','l',
 'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-// Variables for tracking our wins, losses and guesses.
+
 var wins = 0;
 var losses = 0;
 var guesses = 9;
@@ -23,7 +22,6 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 		losses++;
 		guesses--;
 	}
-
 	
 	var html = "<p>Guess what letter I'm thinking of</p>" +
           "<p>Wins: " + wins + "</p>" +
@@ -33,19 +31,21 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 
 	// Injecting the HTML we just created into our div and updating the game information on our page.
 	document.querySelector("#game").innerHTML = html;
-/*
+
 	if (wins === 9 || losses === 9 || guesses === 0) {
-		
+		wins=0;
+		losses=0;
+		guesses=9;
+		guessArr=[];
 		var resetHtml = "<p>Guess what letter I'm thinking of</p>" +
           "<p>Wins: " + wins + "</p>" +
           "<p>Losses: " + losses + "</p>" +
           "<p>Guesses: " + guesses + "</p>"+
-          "<p>Your guesses so far: " + + "</p>";
+          "<p>Your guesses so far: </p>";
  
 	document.querySelector("#game").innerHTML = resetHtml;
-
 	}
-*/
+
 }
 
 
