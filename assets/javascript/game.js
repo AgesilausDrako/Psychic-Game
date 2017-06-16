@@ -15,7 +15,11 @@ var userGuess = event.key;
 //Computer's random guess
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 	//Array for guess storage 
-	guessArr.push(userGuess);
+	if (!guessArr.includes(userGuess)) {
+		guessArr.push(userGuess);
+	} else {
+		userGuess = false;
+	}
 
 	if (userGuess === computerGuess) {
 		wins++;
